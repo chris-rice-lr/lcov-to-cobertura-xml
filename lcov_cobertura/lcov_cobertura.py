@@ -132,6 +132,7 @@ class LcovCobertura(object):
             if input_type == 'SF':
                 # Get file name
                 file_name = line_parts[-1].strip()
+                print("base_dir = " + self.base_dir)
                 print("file_name = " + file_name)
                 relative_file_name = os.path.relpath(file_name, self.base_dir)
                 print("relative_file_name = " + relative_file_name)
@@ -139,6 +140,7 @@ class LcovCobertura(object):
                 print("package = " + package)
                 class_name = '.'.join(relative_file_name.split(os.path.sep))
                 print("class_name = " + class_name)
+                print()
                 if package not in coverage_data['packages']:
                     coverage_data['packages'][package] = {
                         'classes': {}, 'lines-total': 0, 'lines-covered': 0,
