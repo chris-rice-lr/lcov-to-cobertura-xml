@@ -373,6 +373,9 @@ def main(argv=None):
 
     By default, XML output will be written to ./coverage.xml
     """
+
+    print("Hello this is lcov to cobertura script")
+
     if argv is None:
         argv = sys.argv
     parser = OptionParser()
@@ -406,6 +409,7 @@ def main(argv=None):
             lcov_cobertura = LcovCobertura(lcov_data, options.base_dir, options.excludes, options.demangle)
             cobertura_xml = lcov_cobertura.convert()
         with open(options.output, mode='wt') as output_file:
+            print("Writing cobertura coverage to file %s" % options.output)
             output_file.write(cobertura_xml)
     except IOError:
         sys.stderr.write("Unable to convert %s to Cobertura XML" % args[1])
