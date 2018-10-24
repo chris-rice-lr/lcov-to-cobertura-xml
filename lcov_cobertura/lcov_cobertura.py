@@ -140,7 +140,7 @@ class LcovCobertura(object):
                 print("package = " + package)
                 class_name = '.'.join(relative_file_name.split(os.path.sep))
                 print("class_name = " + class_name)
-                print()
+                print
                 if package not in coverage_data['packages']:
                     coverage_data['packages'][package] = {
                         'classes': {}, 'lines-total': 0, 'lines-covered': 0,
@@ -408,6 +408,8 @@ def main(argv=None):
     if len(args) != 2:
         print(main.__doc__)
         sys.exit(1)
+
+    print("Current working directory: %s" % os.getcwd())
 
     try:
         with open(args[1], 'r') as lcov_file:
